@@ -1,0 +1,26 @@
+{
+  "name": "be-event-planner-for-sport-games",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tinkling-Shrew/BE-Event-Planner-for-Sport-Games.git"
+  },
+  "keywords": [],
+  "author": "Tinkling Shrew",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tinkling-Shrew/BE-Event-Planner-for-Sport-Games/issues"
+  },
+  "homepage": "https://github.com/Tinkling-Shrew/BE-Event-Planner-for-Sport-Games#readme",
+  "dependencies": {
+    "express": "^4.18.0",
+    "joi": "^17.6.0"
+  }
+}
