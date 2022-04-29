@@ -10,8 +10,8 @@ eventsRouter.get('/', async (req, resp) => {
         
         events.forEach((ev) => {
             ev.state = currentTime < ev.starttime ? "Upcoming" : currentTime < ev.endtime ? "Ongoing" : "Past";
-          });
-        resp.send(events);
+        });
+        resp.send(events.filter((ev) => {return ev.password === null}));
     } catch(err) {
         resp.send({message: err})
     }

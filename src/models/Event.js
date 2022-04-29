@@ -14,5 +14,4 @@ const EventSchema = mongoose.Schema({
     endtime: { type: String, required: true }
 });
 
-//esport
 export default mongoose.model('Event', EventSchema);

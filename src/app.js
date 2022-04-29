@@ -7,12 +7,11 @@ import eventsRouter from "./routes/events.js"
 const app = express();
 const database = new Database();
 
-export let events = [
-    {"id": "27f9cc70-d41a-4e0a-ba7a-99946c19a000", "participants":[], "max_participants": 9, "name":"Football Night", "description": "This event do be ballin'. Don't forget to join. :D", "host": "USERc9b3a1f3-4ee7-415d-9ce8-a22039a747ea", "location": "Earth", "starttime":"30.05.2022 12:00", "endtime":"30.05.2022 13:00", "state": "Upcoming"}, 
-    {"id": "c9b3a1f3-4ee7-415d-9ce8-a22039a747ea", "participants":[], "max_participants": 9, "name":"Sunday PingPong", "description": "Ping 129ms. Don't forget to join. :D", "host": "USERc9b3a1f3-4ee7-415d-9ce8-a22039a747ea", "location": "Mars", "starttime":"1.06.2022 12:00", "endtime":"1.06.2022 13:00", "state": "Upcoming"}, 
-    {"id": "43d35bcb-2b2e-4ef6-9236-ceb28962fa29", "participants":[], "max_participants": 9, "name":"Monday HIIT", "description": "This is gonna HIIT hard. Don't forget to join. :D", "host": "USERc9b3a1f3-4ee7-415d-9ce8-a22039a747ea", "location": "Jupyter", "starttime":"2.06.2022 12:00", "endtime":"2.06.2022 13:00", "state": "Upcoming"},
-    {"id": "43d35bcb-2b2e-4ef6-9236-ceb28962fa29", "participants":[], "max_participants": 9, "name":"Monday HIIT", "description": "This is gonna HIIT hard. Don't forget to join. :D", "host": "USERc9b3a1f3-4ee7-415d-9ce8-a22039a747ea", "location": "Jupyter", "starttime":"2.06.2022 12:00", "endtime":"2.06.2022 13:00", "state": "Upcoming"}
-];
+// export let events = [
+//     {"id": "27f9cc70-d41a-4e0a-ba7a-99946c19a000", "participants":[], "max_participants": 9, "name":"Football Night", "description": "This event do be ballin'. Don't forget to join. :D", "host": "USERc9b3a1f3-4ee7-415d-9ce8-a22039a747ea", "location": "Earth", "starttime":"30.05.2022 12:00", "endtime":"30.05.2022 13:00", "state": "Upcoming"}, 
+//     {"id": "c9b3a1f3-4ee7-415d-9ce8-a22039a747ea", "participants":[], "max_participants": 9, "name":"Sunday PingPong", "description": "Ping 129ms. Don't forget to join. :D", "host": "USERc9b3a1f3-4ee7-415d-9ce8-a22039a747ea", "location": "Mars", "starttime":"1.06.2022 12:00", "endtime":"1.06.2022 13:00", "state": "Upcoming"}, 
+//     {"id": "43d35bcb-2b2e-4ef6-9236-ceb28962fa29", "participants":[], "max_participants": 9, "name":"Monday HIIT", "description": "This is gonna HIIT hard. Don't forget to join. :D", "host": "USERc9b3a1f3-4ee7-415d-9ce8-a22039a747ea", "location": "Jupyter", "starttime":"2.06.2022 12:00", "endtime":"2.06.2022 13:00", "state": "Upcoming"},
+// ];
 
 database.connect();
 app.use(express.json());
@@ -25,7 +24,7 @@ app.use(function (req, res, next) {
 });
 
 app.get('/', (req, resp) => {
-    resp.send("Hello World");
+    resp.send("Backed server for Sports Planner.<br><br>If you see this message, then it means that the server is running.");
 });
 
 // use routes

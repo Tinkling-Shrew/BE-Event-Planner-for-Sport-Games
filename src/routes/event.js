@@ -1,4 +1,3 @@
-import { events } from "../app.js";
 import validateCreateEvent from "../util/validation.js";
 import Event from "../models/Event.js"
 import crypto from "crypto";
@@ -6,10 +5,12 @@ import express from "express";
 
 const eventRouter = express.Router();
 
-eventRouter.get('/:id', (req, resp) => {
-    const event = events.find(el => el.id==req.params.id);
-    if(!event) 
+eventRouter.get('/:id', async (req, resp) => {
+    const event = await Event.find({id: req.params.id});
+    if(!event[0]) 
         return resp.status(404).send({});
+    if(event[0].password !== null && (!req.headers.password || crypto.createHash('sha256').update(req.headers.password).digest('hex') != event[0].password))
+        return resp.status(401).send({});
 
     resp.send(event);
 });
@@ -42,11 +43,13 @@ eventRouter.post('/', async (req, resp) => {
     }
 });
 
-eventRouter.put('/:id', (req, resp) => {
-    // check if event exists
-    const event = events.find(el => el.id==req.params.id);
-    if(events.indexOf(event) == -1)
-        return resp.status(404).send("Event not found!");
+eventRouter.put('/:id', async (req, resp) => {
+    // check if event exists and user is authorized to view it
+    const event = await Event.find({id: req.params.id});
+    if(!event[0]) 
+        return resp.status(404).send({});
+    if(event[0].password !== null && (!req.headers.password || crypto.createHash('sha256').update(req.headers.password).digest('hex') != event[0].password))
+        return resp.status(401).send({});
 
     // check if replacement event is valid
     const {error} = validateCreateEvent(req.body);
@@ -54,18 +57,33 @@ eventRouter.put('/:id', (req, resp) => {
         return resp.status(400).send(error.details[0].message);
 
     // update the event
-    event.name = req.body.name;
-    event.date = req.body.date;
-    resp.send(event);
+    await Event.updateOne({id: req.params.id}, {
+        $set: {
+            "max_participants": req.body.max_participants,
+            "name": req.body.name,
+            "sport": req.body.sport,
+            "description": req.body.description && req.body.description != "" ? req.body.description : "No description available.",
+            "location": req.body.location,
+            "password": req.body.password && req.body.password != "" ? crypto.createHash('sha256').update(req.body.password).digest('hex') : null,
+            "starttime": req.body.starttime,
+            "endtime": req.body.endtime
+        },
+        $currentDate: { lastModified: true }
+    });
+    resp.send(await Event.find({id: req.params.id}));
 });
 
-eventRouter.delete('/:id', (req, resp) => {
-    const event = events.find(el => el.id==req.params.id);
-    if(events.indexOf(event) == -1)
+eventRouter.delete('/:id', async (req, resp) => {
+    // check if event exists and user is authorized to view it
+    const event = await Event.find({id: req.params.id});
+    if(!event[0]) 
         return resp.status(404).send("Event not found!");
+    if(event[0].password !== null && (!req.headers.password || crypto.createHash('sha256').update(req.headers.password).digest('hex') != event[0].password))
+        return resp.status(401).send("Wrong password!");
 
-    events.splice(events.indexOf(event), 1);
-    resp.send("OK");
+    // delete event
+    await Event.deleteOne({id: req.params.id});
+    resp.send("Deleted successfully!");
 });
 
 export default eventRouter;
