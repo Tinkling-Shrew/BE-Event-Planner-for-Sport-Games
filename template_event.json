@@ -1,6 +1,10 @@
 {
     "id": "27f9cc70-d41a-4e0a-ba7a-99946c19a000",
-    "participants": ["USER27f9cc70-d41a-4e0a-ba7a-99946c19a000", "USERc9b3a1f3-4ee7-415d-9ce8-a22039a747ea"],
+    "participants": [
+        "rudolf.daian01@e-uvt.ro",
+        "cristian.ciocoi00@e-uvt.ro",
+        "adam.csiki01@e-uvt.ro"
+    ],
     "max_participants": 9,
     "name": "Ravelyk's event",
     "sport": "Baschet",
@@ -8,7 +12,11 @@
     "host": "USERc9b3a1f3-4ee7-415d-9ce8-a22039a747ea",
     "location": "link to google maps or coordinates or other type of link",
     "password": "supersecretpassword (if public event, empty string)",
-    "starttime": "insert date and time code in chosen NODE library",
-    "endtime": "insert date and time code in chosen NODE library",
+    "starttime": "2022-04-29T12:00:31.691Z",
+    "endtime": "2022-04-29T18:23:51.691Z",
+    "repeat": {
+        "mode": "weekly",
+        "count": 3
+    },
     "state": "Upcoming | Ongoing | Past"
 }
