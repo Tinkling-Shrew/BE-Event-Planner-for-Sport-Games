@@ -23,8 +23,11 @@ function generateEventObj(data, update = undefined) {
         starttime: data.starttime,
         endtime: data.endtime,
         repeat: {
-            mode: data.repeat.mode,
-            count: data.repeat.mode !== "once" ? data.repeat.count : 0,
+            mode: data.repeat && data.repeat.mode ? data.repeat.mode : "once",
+            count:
+                data.repeat && data.repeat.mode !== "once"
+                    ? data.repeat.count
+                    : 0,
         },
     });
 }
