@@ -11,7 +11,12 @@ function generateEventObj(data, update = undefined) {
             data.description && data.description != ""
                 ? data.description
                 : "No description available.",
-        host: update ? update.host : "USER000000-00000-000000-000000",
+        host: update
+            ? update.host
+            : {
+                  username: data.host.username,
+                  email: data.host.email ? data.host.email : "No email address",
+              },
         location: data.location,
         password:
             data.password && data.password != ""
@@ -20,8 +25,8 @@ function generateEventObj(data, update = undefined) {
                       .update(data.password)
                       .digest("hex")
                 : null,
-        starttime: data.starttime,
-        endtime: data.endtime,
+        start_time: data.start_time,
+        end_time: data.end_time,
         repeat: {
             mode: data.repeat && data.repeat.mode ? data.repeat.mode : "once",
             count:

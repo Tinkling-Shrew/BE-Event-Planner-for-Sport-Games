@@ -1,15 +1,14 @@
 {
     "id": "27f9cc70-d41a-4e0a-ba7a-99946c19a000",
-    "participants": [
-        "rudolf.daian01@e-uvt.ro",
-        "cristian.ciocoi00@e-uvt.ro",
-        "adam.csiki01@e-uvt.ro"
-    ],
+    "participants": ["rudolf.daian01@e-uvt.ro", "cristian.ciocoi00@e-uvt.ro"],
     "max_participants": 9,
     "name": "Ravelyk's event",
     "sport": "Baschet",
     "description": "Event description here. Don't forget to join. :D",
-    "host": "USERc9b3a1f3-4ee7-415d-9ce8-a22039a747ea",
+    "host": {
+        "username": "Ravelyk",
+        "email": "adam.csiki01@e-uvt.ro"
+    },
     "location": "link to google maps or coordinates or other type of link",
     "password": "supersecretpassword (if public event, empty string)",
     "starttime": "2022-04-29T12:00:31.691Z",

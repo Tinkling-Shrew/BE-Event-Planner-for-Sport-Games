@@ -7,11 +7,14 @@ const EventSchema = mongoose.Schema({
     name: { type: String, required: true },
     sport: { type: String, required: true },
     description: { type: String, required: false },
-    host: { type: String, required: true },
+    host: {
+        username: { type: String, required: true },
+        email: { type: String, required: false },
+    },
     location: { type: String, required: true },
     password: { type: String, required: false },
-    starttime: { type: Date, required: true },
-    endtime: { type: Date, required: true },
+    start_time: { type: Date, required: true },
+    end_time: { type: Date, required: true },
     repeat: {
         mode: { type: String, required: true },
         count: { type: Number, required: false },
