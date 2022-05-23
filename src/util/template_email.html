@@ -1,0 +1,92 @@
+<!-- ############## SPORT EVENT PLANNER EMAIL ################ -->
+<!-- Template generated using: https://html-online.com/editor/ -->
+
+<body style="font-family: Arial, Helvetica, sans-serif">
+    <h1 style="color: #5e9ca0; text-align: center">${event[0].name}</h1>
+    <h3 style="text-align: center">Organized by: ${event[0].host.username}</h3>
+    <p></p>
+    <h2 style="color: #2e6c80">
+        <img
+            src="https://icons.iconarchive.com/icons/elegantthemes/beautiful-flat/128/clipboard-icon.png"
+            alt="information icon"
+            width="20"
+            height="20"
+        />
+        Information:
+    </h2>
+    <ol
+        style="
+            list-style: none;
+            font-size: 14px;
+            line-height: 32px;
+            font-weight: bold;
+        "
+    >
+        <li style="clear: both">
+            <img
+                style="vertical-align: middle; padding: 10px"
+                src="https://icons.iconarchive.com/icons/elegantthemes/beautiful-flat/128/clock-icon.png"
+                alt="time icon"
+                width="40"
+                height="40"
+            />
+            Start time: ${moment(event[0].start_time).format("HH:mm Z")}
+        </li>
+        <li style="clear: both">
+            <img
+                style="vertical-align: middle; padding: 10px"
+                src="https://icons.iconarchive.com/icons/elegantthemes/beautiful-flat/128/calendar-icon.png"
+                alt="date icon"
+                width="40"
+                height="40"
+            />
+            Date: ${moment(event[0].start_time).format("DD/MM/YYYY")}
+        </li>
+        <li style="clear: both">
+            <img
+                style="vertical-align: middle; padding: 10px"
+                src="https://icons.iconarchive.com/icons/elegantthemes/beautiful-flat/128/location-icon.png"
+                alt="location icon"
+                width="40"
+                height="40"
+            />
+            Location: ${event[0].location}
+        </li>
+    </ol>
+    <p></p>
+    <h2 style="color: #2e6c80">
+        <img
+            src="https://icons.iconarchive.com/icons/elegantthemes/beautiful-flat/128/compose-icon.png"
+            alt="description icon"
+            width="20"
+            height="20"
+        />
+        Description:
+    </h2>
+    <p><strong> ${event[0].description} </strong></p>
+    <p></p>
+    <h2 style="color: #2e6c80">
+        <img
+            src="https://icons.iconarchive.com/icons/elegantthemes/beautiful-flat/128/check-icon.png"
+            alt="join icon"
+            width="20"
+            height="20"
+        />
+        Invitation:
+    </h2>
+    <p>
+        <strong>
+            If you would like to view more information about this event and
+            accept or decline this invitation, please visit the following link:
+            <br
+        /></strong>
+    </p>
+    <p>
+        <strong>
+            <a title="Invitation link" href="${link}" target="_blank">
+                <em> ${link} </em>
+            </a>
+        </strong>
+    </p>
+    <p></p>
+</body>

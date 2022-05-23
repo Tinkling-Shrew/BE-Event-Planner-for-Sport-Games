@@ -35,7 +35,7 @@ app.get("/", (req, resp) => {
 
 // use routes
 app.use("/api/events", eventsRouter);
-// app.use("/api/users", usersRouter);
+// app.use("/api/users", usersRouter);      // users are disabled in this version
 app.use("/api/invite", inviteRouter);
 
 export default app;
