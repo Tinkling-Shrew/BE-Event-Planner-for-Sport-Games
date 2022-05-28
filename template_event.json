@@ -11,8 +11,8 @@
     },
     "location": "link to google maps or coordinates or other type of link",
     "password": "supersecretpassword (if public event, empty string)",
-    "starttime": "2022-04-29T12:00:31.691Z",
-    "endtime": "2022-04-29T18:23:51.691Z",
+    "start_time": "2022-04-29T12:00:31.691Z",
+    "end_time": "2022-04-29T18:23:51.691Z",
     "repeat": {
         "mode": "weekly",
         "count": 3

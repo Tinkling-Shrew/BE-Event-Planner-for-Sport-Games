@@ -1,8 +1,8 @@
 import validateCreateEvent from "../util/eventValidation.js";
 import generateEventObj from "../util/eventMaker.js";
 import Event from "../models/Event.js";
-import moment from "moment";
 import crypto from "crypto";
+import moment from "moment";
 
 /* =============================================================================
    ||                   GET ALL EVENTS FUNCTION (for route)                   ||
@@ -14,9 +14,9 @@ export const getEvents = async (req, resp) => {
 
         events.forEach((ev) => {
             ev.state =
-                currentTime < ev.starttime
+                currentTime < ev.start_time
                     ? "Upcoming"
-                    : currentTime < ev.endtime
+                    : currentTime < ev.end_time
                     ? "Ongoing"
                     : "Past";
         });
@@ -48,9 +48,9 @@ export const getEvent = async (req, resp) => {
         return resp.status(401).send({});
 
     event[0].state =
-        currentTime < event[0].starttime
+        currentTime < event[0].start_time
             ? "Upcoming"
-            : currentTime < event[0].endtime
+            : currentTime < event[0].end_time
             ? "Ongoing"
             : "Past";
     resp.send(event[0]);
