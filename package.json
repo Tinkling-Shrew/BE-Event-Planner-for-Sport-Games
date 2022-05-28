@@ -1,33 +1,32 @@
 {
-  "name": "be-event-planner-for-sport-games",
-  "version": "1.0.0",
-  "description": "",
-  "main": "src/index.js",
-  "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Tinkling-Shrew/BE-Event-Planner-for-Sport-Games.git"
-  },
-  "keywords": [],
-  "author": "Tinkling Shrew",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Tinkling-Shrew/BE-Event-Planner-for-Sport-Games/issues"
-  },
-  "homepage": "https://github.com/Tinkling-Shrew/BE-Event-Planner-for-Sport-Games#readme",
-  "dependencies": {
-    "dotenv": "^16.0.0",
-    "express": "^4.18.0",
-    "joi": "^17.6.0",
-    "moment": "^2.29.3",
-    "mongodb-moment": "^1.0.2",
-    "mongoose": "^6.3.1",
-    "node-schedule": "^2.1.0",
-    "nodemailer": "^6.7.5"
-  }
+    "name": "be-event-planner-for-sport-games",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/index.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon src/index.js",
+        "start": "node src/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Tinkling-Shrew/BE-Event-Planner-for-Sport-Games.git"
+    },
+    "keywords": [],
+    "author": "Tinkling Shrew",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Tinkling-Shrew/BE-Event-Planner-for-Sport-Games/issues"
+    },
+    "homepage": "https://github.com/Tinkling-Shrew/BE-Event-Planner-for-Sport-Games#readme",
+    "dependencies": {
+        "dotenv": "^16.0.0",
+        "express": "^4.18.0",
+        "joi": "^17.6.0",
+        "moment": "^2.29.3",
+        "mongoose": "^6.3.1",
+        "node-schedule": "^2.1.0",
+        "nodemailer": "^6.7.5"
+    }
 }
